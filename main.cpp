@@ -11,6 +11,7 @@ using namespace std;
 int hamming_distance(string, string);
 int hamming_distance_recur(string , string);
 int levenshtein_distance(string , string, int , int);
+int levenshtein_distance_ite(string , string, int, int);
 
 int main(int argc, char* argv[]) {
     if (argc < 2 || argc > 3) {
@@ -46,7 +47,7 @@ int main(int argc, char* argv[]) {
 
         if(mot1.length() == mot2.length()){
             auto start_time = chrono::high_resolution_clock::now();  // Mesure du temps de début
-            int distance = hamming_distance_recur(mot1, mot2);
+            int distance = hamming_distance(mot1, mot2);
             auto end_time = chrono::high_resolution_clock::now();  // Mesure du temps de fin
             auto duration = chrono::duration_cast<chrono::microseconds>(end_time - start_time);  // Calcul de la durée d'exécution en microsecondes
             cout << "La distance de Hamming entre \"" << mot1 << "\" et \"" << mot2 << "\" est : " << distance <<endl;

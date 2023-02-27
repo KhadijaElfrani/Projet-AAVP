@@ -3,7 +3,6 @@
 
 using namespace std;
 
-
 int hamming_distance_recur(string str1, string str2) {
     if (str1.length() == 0) {
         return str2.length();
