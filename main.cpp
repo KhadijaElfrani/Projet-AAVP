@@ -4,14 +4,9 @@
 #include <algorithm>
 #include <iomanip>
 #include <chrono>  // Inclusion de la bibliothèque pour mesurer le temps
-#include "header.h"  // Inclusion du fichier d'en-tête contenant la fonction hamming_distance
+#include "header.h" 
 
 using namespace std;
-
-int hamming_distance(string, string);
-int hamming_distance_recur(string , string);
-int levenshtein_distance(string , string, int , int);
-int levenshtein_distance_ite(string , string, int, int);
 
 int main(int argc, char* argv[]) {
     if (argc < 2 || argc > 3) {
@@ -45,7 +40,7 @@ int main(int argc, char* argv[]) {
         string mot1 = argv[1];  // Premier mot donné
         string mot2 = argv[2];  // Deuxième mot donné
 
-        if(mot1.length() == mot2.length()){
+       /* if(mot1.length() == mot2.length()){
             auto start_time = chrono::high_resolution_clock::now();  // Mesure du temps de début
             int distance = hamming_distance(mot1, mot2);
             auto end_time = chrono::high_resolution_clock::now();  // Mesure du temps de fin
@@ -55,7 +50,7 @@ int main(int argc, char* argv[]) {
             cout << fixed << setprecision(6) << duration.count() / 1000000.0 << " s" << endl;
         // si les mots ne sont pas de la même taille on calcule la distance Levenshtein
 
-        } else { 
+        } else { */
             auto start_time = chrono::high_resolution_clock::now();  // Mesure du temps de début
             int distance = levenshtein_distance(mot1, mot2,mot1.length(),mot2.length());
             auto end_time = chrono::high_resolution_clock::now();  // Mesure du temps de fin
@@ -63,7 +58,7 @@ int main(int argc, char* argv[]) {
             cout << "La distance Levenshtein entre \"" << mot1 << "\" et \"" << mot2 << "\" est : " << distance <<endl;
             cout << "Le temps d'execution est de : "; 
             cout << fixed << setprecision(6) << duration.count() / 1000000.0 << " s" << endl;
-        }
+        //}
 
     }
 
