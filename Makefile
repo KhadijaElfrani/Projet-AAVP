@@ -1,16 +1,19 @@
-CC = gcc
-CFLAGS = -Wall -Wextra -g
+CXX = g++
+CXXFLAGS = -Wall -Wextra -g
 
 all: HAMMING
 
-HAMMING: main.o header.o
-	$(CC) $(CFLAGS) -o $@ $^
+HAMMING: main.o algo_hamming.o hamming_recursif.o
+	$(CXX) $(CXXFLAGS) -o $@ $^
 
-main.o: main.cpp header.h
-	$(CC) $(CFLAGS) -c -o $@ $<
+main.o: main.cpp
+	$(CXX) $(CXXFLAGS) -c -o $@ $<
 
-header.o: header.cpp header.h
-	$(CC) $(CFLAGS) -c -o $@ $<
+algo_hamming.o: algo_hamming.cpp 
+	$(CXX) $(CXXFLAGS) -c -o $@ $<
+	
+hamming_recursif.o: hamming_recursif.cpp 
+	$(CXX) $(CXXFLAGS) -c -o $@ $<
 
 clean:
-	rm -f HAMMING main.o header.o
+	rm -f HAMMING main.o algo_hamming.o hamming_recursif.o
