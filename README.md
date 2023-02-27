@@ -41,12 +41,18 @@ La comparaison se fera par une analyse theorique, mais aussi en comparant leurs 
         $$ Un seule argument (un mot de taille 8 exigé) : le programme retourne le mot le plus proche du mot donnée en argument à partir d'une petite liste de mots.
 
         $$ Deux argument :
-            => Si les deux argument sont deux mots de la même taille, le programme affiche la distance hamming entre les deux avec les deux version itératif et récursif.
-            => Si les deux mots sont de taille différente, le programme affiche la distance d'edition (Levenshtein) entre les deux avec les deux version itératif et récursif.
+            => Si les deux argument sont deux mots de la même taille, le programme affiche la distance hamming entre les deux avec la version itératif.
+            => Si les deux mots sont de taille différente, le programme affiche la distance d'edition (Levenshtein) entre les deux avec la version itératif.
 
 ### EXÉCUTION
     - Pour lancer le programme, exécutez les commandes suivantes :
         > make
         > ./HAMMING mot OU ./HAMMING mot1 mot2
+
+### REMARQUES 
+
+    - Par défaut, le programme affiche les résultats en exécutant les versions itératifs des deux algorithmes hamming et leveshtein, car dans les deux cas, c'est celle-ci qui était plus puissante, cependant, vous pouvez toujours tester les versions recursives des algorithme en changeant les appels des functions iteratifs dans le main.cpp, avec les functions recursives comme suit :
+    hamming_distance_ite -> hamming_distance_recur
+    levenshtein_distance_ite -> levenshtein_distance_recur
 
 ### FIN

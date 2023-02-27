@@ -13,16 +13,14 @@ int main(int argc, char* argv[]) {
         cout << "Usage: " << argv[0] << " mot1 [mot2]" << endl;
         return 1;
     }
-
     if (argc == 2) {
         string mot = argv[1];  // Mot donné
         vector<string> mots_liste = {"Abaisser", "Abricots", "Accolade", "Aspirine", "Avorteur", "Aiguille", "Antivols", "Apparais", "Applique", "Charrier"};
-
         vector<pair<string, int>> distances;  // Vecteur pour stocker les paires (mot, distance de Hamming)
 
         // Calcul de la distance de Hamming entre le mot donné et chaque mot de la liste
         for (string mot_liste : mots_liste) {
-            int distance = hamming_distance_recur(mot, mot_liste);
+            int distance = hamming_distance_ite(mot, mot_liste);
             distances.push_back(make_pair(mot_liste, distance));
         }
 
@@ -40,9 +38,9 @@ int main(int argc, char* argv[]) {
         string mot1 = argv[1];  // Premier mot donné
         string mot2 = argv[2];  // Deuxième mot donné
 
-       /* if(mot1.length() == mot2.length()){
+       if(mot1.length() == mot2.length()){
             auto start_time = chrono::high_resolution_clock::now();  // Mesure du temps de début
-            int distance = hamming_distance(mot1, mot2);
+            int distance = hamming_distance_ite(mot1, mot2);
             auto end_time = chrono::high_resolution_clock::now();  // Mesure du temps de fin
             auto duration = chrono::duration_cast<chrono::microseconds>(end_time - start_time);  // Calcul de la durée d'exécution en microsecondes
             cout << "La distance de Hamming entre \"" << mot1 << "\" et \"" << mot2 << "\" est : " << distance <<endl;
@@ -50,15 +48,15 @@ int main(int argc, char* argv[]) {
             cout << fixed << setprecision(6) << duration.count() / 1000000.0 << " s" << endl;
         // si les mots ne sont pas de la même taille on calcule la distance Levenshtein
 
-        } else { */
+        } else {
             auto start_time = chrono::high_resolution_clock::now();  // Mesure du temps de début
-            int distance = levenshtein_distance(mot1, mot2,mot1.length(),mot2.length());
+            int distance = levenshtein_distance_ite(mot1, mot2,mot1.length(),mot2.length());
             auto end_time = chrono::high_resolution_clock::now();  // Mesure du temps de fin
             auto duration = chrono::duration_cast<chrono::microseconds>(end_time - start_time);  // Calcul de la durée d'exécution en microsecondes
             cout << "La distance Levenshtein entre \"" << mot1 << "\" et \"" << mot2 << "\" est : " << distance <<endl;
             cout << "Le temps d'execution est de : "; 
             cout << fixed << setprecision(6) << duration.count() / 1000000.0 << " s" << endl;
-        //}
+        }
 
     }
 

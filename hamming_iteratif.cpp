@@ -3,7 +3,7 @@
 
 using namespace std;
 
-int hamming_distance(string str1, string str2) {
+int hamming_distance_ite(string str1, string str2) {
     int distance = 0;
         if (str1.length() != str2.length()){
             cout <<"C'est pas la même longueur !"<< endl;
